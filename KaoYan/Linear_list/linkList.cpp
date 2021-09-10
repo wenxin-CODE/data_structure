@@ -41,7 +41,7 @@ LinkList List_HeadInsert(LinkList &L){
     while (x!=9999)
     {
         /* code */
-        InsertNextNode(L,x);
+        InsertNextNode(L,x);//参数L始终是头节点，所以是头插法
         printf("请输入一个信息");
         scanf("%D",&x);
     }
@@ -75,6 +75,7 @@ bool InsertPriorNode(LNode *p,Elemtype e){
         return false;
     s->next = p->next;
     p->next = s;
+    // 插入的方式和后插相同，只是把数据换一下就变成前插了
     s->data = p->data;
     p->data = e;
     return true;
@@ -145,29 +146,79 @@ void VisitElem(LinkList L){
     printf("\n");
 }
 
+// 2.3.7.15求交集
+// 这个方法对应的是递增序列，而你使用的是头插法创建链表，输入递增，输出递减
+LinkList Union(LinkList &L,LinkList &K){
+    LNode *pa = L->next;
+    LNode *pb = K->next;
+    LNode *pc = L;
+    LNode *u;
+    while(pa&&pb){
+        // printf("%d,%d\n",pa->data,pb->data);
+        if(pa->data==pb->data){
+            pc->next = pa;
+            pc = pa;//这里是赋值
+            pa = pa->next;
+            u = pb;
+            pb = pb->next;
+            free(u);
+        }else if(pa->data<pb->data){
+            u=pa;
+            pa = pa->next;
+            free(u);
+        }else{
+            u = pb;
+            pb = pb->next;
+            free(u);
+        }
+    }
+    while(pa){
+        u = pa;
+        pa = pa->next;
+        free(u);
+        // 释放a的所有结点
+    }
+    while(pb){
+        u = pb;
+        pb = pb->next;
+        free(u);
+    }
+    pc->next = NULL;
+    free(K);
+    return L;
+}
+
 int main(){
     LinkList L;
+    LinkList K;
     InitList(L);
+    InitList(K);
     printf("创建链表\n");
     List_HeadInsert(L);
+    printf("创建链表\n");
+    List_HeadInsert(K);
     printf("遍历链表\n");
     VisitElem(L);
-    printf("查找元素\n");
-    printf("%d\n",GetElem(L,2)->data);
-    printf("插入元素10\n");
-    LinkInsert(L,2,10);
-    printf("遍历链表\n");
-    VisitElem(L);
-    int a = 0;
-    printf("删除3号元素\n");
-    ListDelete(L,3,a);
-    printf("遍历链表\n");
-    VisitElem(L);
-    printf("删除的是%d\n",a);
-    LNode *k;
-    printf("修改第5个元素\n");
-    k = GetElem(L,5);
-    k->data = 100;
-    VisitElem(L);
+    VisitElem(K);
+    printf("求交集");
+    LinkList MM = Union(L,K);
+    VisitElem(MM);
+    // printf("查找元素\n");
+    // printf("%d\n",GetElem(L,2)->data);
+    // printf("插入元素10\n");
+    // LinkInsert(L,2,10);
+    // printf("遍历链表\n");
+    // VisitElem(L);
+    // int a = 0;
+    // printf("删除3号元素\n");
+    // ListDelete(L,3,a);
+    // printf("遍历链表\n");
+    // VisitElem(L);
+    // printf("删除的是%d\n",a);
+    // LNode *k;
+    // printf("修改第5个元素\n");
+    // k = GetElem(L,5);
+    // k->data = 100;
+    // VisitElem(L);
     printf("Hello World!!!");
 }
