@@ -48,6 +48,53 @@ int GetElem(SqStack S,Elemtype &e){
     return e;
 }
 
+/*
+//3.1.4.5共享栈
+#define maxsize 100
+#define elemtp int
+
+typedef struct{
+    elemtp stack[maxsize];
+    int top[2];
+}stk;
+
+int push(stk &s,int i,elemtp x){
+    // i表示站号，=0是1号站，=1是2号站
+    if(i<0||i>1)
+        exit(0);
+    if(s.top[1]-s.top[0]==1)
+        return 0;
+    switch(i){
+        case 0: s.stack[++s.top[0]]=x;
+                return 1;
+                break;
+        case 1: s.stack[--s.top[1]]=x;
+                return 1;
+    }
+}
+
+elemtp pop(stk &s,int &i){
+    if(i<0||i>1)
+        exit(0);
+    switch(i){
+        case 0: 
+        if(s.top[0]==-1){
+            printf("栈空\n");
+            return -1;
+        }else{
+            return s.stack[s.top[0]--];
+        }
+        case 1: 
+         if(s.top[1]==maxsize){
+            printf("栈空\n");
+            return -1;
+        }else{
+            return s.stack[s.top[1]++];
+        }
+    }
+}
+*/
+
 int main(){
     SqStack S;
     InitStack(S);
@@ -64,3 +111,4 @@ int main(){
     printf("%d\n",S.top);
     printf("%d",GetElem(S,nowdata));
 }
+
