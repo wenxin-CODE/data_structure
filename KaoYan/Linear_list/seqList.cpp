@@ -23,11 +23,12 @@ void InitList(Seqlist &L){
 void IncreaseSize(Seqlist &L,int len){
     int *p = L.data;
     L.data = (int *)malloc(InitSize*sizeof(int));
+    // 这里就是直接往L.data后面追加
     for (int i = 0; i < L.length; i++){
         L.data[i] = p[i];
     }
     L.MaxSize = L.MaxSize+len;
-    free(p);
+    // free(p);
     printf("扩容成功\n");
 }
 
@@ -164,14 +165,28 @@ int main(){
     ListInsert(L,3,3);
     ListInsert(L,4,4);
     ListInsert(L,5,5);
-    Seqlist K;
-    InitList(K);
-    ListInsert(K,6,6);
-    ListInsert(K,7,7);
-    ListInsert(K,8,8);
-    ListInsert(K,9,9);
-    ListInsert(K,10,10);
-    printf("中位数是%d",M_search(L,K,L.length));
+    ListInsert(L,6,6);
+    // IncreaseSize(L,10);
+    ListInsert(L,7,7);
+    ListInsert(L,8,8);
+    ListInsert(L,9,9);
+    ListInsert(L,10,10);
+    printf("%d\n",L.data[7]);
+    // IncreaseSize(L,10);
+    // printf("%d\n",sizeof(L.data)/sizeof(int));
+    // ListInsert(L,1,1);
+    // ListInsert(L,2,2);
+    // ListInsert(L,3,3);
+    // ListInsert(L,4,4);
+    // ListInsert(L,5,5);
+    // Seqlist K;
+    // InitList(K);
+    // ListInsert(K,6,6);
+    // ListInsert(K,7,7);
+    // ListInsert(K,8,8);
+    // ListInsert(K,9,9);
+    // ListInsert(K,10,10);
+    // printf("中位数是%d",M_search(L,K,L.length));
     // ListInsert(L,5,5);
     // PrintElement(L);
     // int a = 0;
