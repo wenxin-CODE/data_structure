@@ -3,6 +3,9 @@
 #include <iostream>
  
 //  https://blog.csdn.net/qq_27437197/article/details/85739473
+// 首先把大整数分成高位和低位，一个乘法分成四个
+// 再对分开的乘法继续分，直到两个因数都是一位的
+// 对底数和指数做乘法处理，再对乘积做加法处理
 using namespace std;
 #define M 100
 char sa[1000];
@@ -12,7 +15,9 @@ typedef struct _Node {
     int l;
     int c;
 } Node, *pNode;
+// 倒序存储在数组s[]中，l表示长度，c表示幂，c初始为0
  
+//  cp函数：将一个n位的数，分成两个n/2的数并存储，记录它的长度和次幂
 void cp(pNode src, pNode des, int st, int l) {
     int i, j;
     for (i = st, j = 0; i < st + l; i++, j++) {
@@ -22,6 +27,7 @@ void cp(pNode src, pNode des, int st, int l) {
     des->c = st + src->c;
 }
  
+// add函数，将分解得到的数，进行相加合并
 void add(pNode pa, pNode pb, pNode ans) {
     int i, cc, k, palen, pblen, len;
     int ta, tb;
@@ -62,12 +68,14 @@ void add(pNode pa, pNode pb, pNode ans) {
     ans->l = i;
 }
  
+// mul函数，不断地分解，直到有一个乘数为1位数时停止分解，进行乘法并记录结果
 void mul(pNode pa, pNode pb, pNode ans) {
     int i, cc, w;
     int ma = pa->l >> 1, mb = pb->l >> 1;
     Node ah, al, bh, bl;
     Node t1, t2, t3, t4, z;
     pNode temp;
+    // 其中至少有一个一位数才执行这里
     if (!ma || !mb) {
     //如果pa是一位数，则和pb交换
         if (!ma) {
@@ -93,11 +101,13 @@ void mul(pNode pa, pNode pb, pNode ans) {
     cp(pb, &bh, mb, pb->l - mb);
     cp(pb, &bl, 0, mb);
  
+//  一个乘法分四个
     mul(&ah, &bh, &t1); 
     mul(&ah, &bl, &t2);
     mul(&al, &bh, &t3);
     mul(&al, &bl, &t4);
  
+//  四个乘积执行加法
     add(&t3, &t4, ans);
     add(&t2, ans, &z);
     add(&t1, &z, ans);
@@ -113,6 +123,7 @@ int main() {
     a.l = strlen(sa);
     b.l = strlen(sb);
     int z = 0, i;
+    // 倒序存入
     for (i = a.l - 1; i >= 0; i--)
         a.s[z++] = sa[i] - '0';
     a.c = 0;
