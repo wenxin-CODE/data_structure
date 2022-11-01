@@ -35,6 +35,7 @@ int main()
     return 0;
 }
 
+// // **指向指针的指针
 void MNS(int C[],int n,int **size)
 {
     for(int j=0;j<C[1];j++)
@@ -45,7 +46,7 @@ void MNS(int C[],int n,int **size)
     for(int j=C[1]; j<=n; j++)
     {
         size[1][j]=1;
-    }//这两个for填充第一行
+    }//这两个for填充第一行，对应公式一
 
     for(int i=2; i<n; i++)
     {
@@ -60,6 +61,8 @@ void MNS(int C[],int n,int **size)
             //第一项代表交叉了，第二项代表没交差
         }
     }//这个for对应那个公式
+
+    // 上面的for有=，就不用这句
     size[n][n]=max(size[n-1][n],size[n-1][C[n]-1]+1);
 }
 

@@ -20,6 +20,7 @@ void MatrixChain(int n)
 		for (i = 1; i <= n - r + 1; i++)//r个矩阵的r-1个空隙中依次测试最优点
 		{
 			j = i + r - 1;
+			// 前部分的时间+后部分的时间+合并的时间
 			m[i][j] = m[i][i]+m[i + 1][j] + A[i - 1] * A[i] * A[j];
 			s[i][j] = i;
 			for (k = i + 1; k < j; k++)//变换分隔位置，逐一测试
@@ -48,9 +49,12 @@ void print(int i, int j)
 }
 int main()
 {
+	cout<<"请输入矩阵个数"<<endl;
 	int n;//n个矩阵
 	cin >> n;
 	int i, j;
+	cout<<"请输入矩阵大小"<<endl;
+	// n个矩阵，输入n+1个数（相邻行等于列）
 	for (i = 0; i <= n; i++)
 	{
 		cin >> A[i];
