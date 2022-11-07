@@ -10,7 +10,8 @@ void dfs(int depth, int n, const int a[20][20], vector<vector<int>>& v, vector<i
 	if (depth == n )//递归出口
 	{
         if(a[(path[depth - 1] - 1)][0] == 1)//能返回出发城市（出发点）才是哈密顿回路
-	        v.push_back(path); 
+	        // 尾部添加元素
+			v.push_back(path); 
 	    path.resize(n, 1);//清除上一条哈密顿回路痕迹的干扰
 	}
 	else
@@ -20,11 +21,12 @@ void dfs(int depth, int n, const int a[20][20], vector<vector<int>>& v, vector<i
 			path[depth] = j;
 			bool flag = true;
 			for (int i = 0; i < depth; i++)
-                if ((a[(path[depth-1]-1)][j - 1] == 0) || (a[(path[depth - 1]-1)][j - 1] == 1 && path[i]== j))
+                if ((a[(path[depth-1]-1)][j - 1] == 0) || (a[(path[depth - 1]-1)][j - 1] == 1 && path[i]== j))//path[i]=j表示之前来过,对应第21行代码
                 //减枝函数，减去当前不可前往的结点和之前已前往的结点
 				{
 					flag = false;
 						break;
+						// 跳出当前循环
 				}
 			    if (flag) 
                     dfs(depth + 1, n, a, v, path);//若满足约束条件和限界函数，递归下一层
@@ -42,9 +44,11 @@ int main()
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < n; j++)
 			cin >> a[i][j];
-	vector<vector<int>>v;
+	// 动态数组，大小不固定
+	vector<vector<int>>v;//记录每一条路径
 	vector<int> path;
-	path.resize(n, 1);
+	// cout<<path[0]<<endl;
+	path.resize(n, 1);//全部赋值为1
 	dfs(1, n, a, v, path);
 	int count = v.size();
 	if (count == 0)

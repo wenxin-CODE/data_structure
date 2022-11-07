@@ -1,6 +1,7 @@
 #include<stdio.h>
 #define MAXN 20
 
+// 子集和问题
 int n=4,W=31;
 int w[]={0,11,13,24,7};  //存放所有整数，不要下标为0的元素 
 int count=0;  //累计解个数

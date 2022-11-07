@@ -10,6 +10,7 @@ int partition(int* arr, int p, int q) {
     while (1)
     {
         //lo从左往右遍历，直至找到一个不小于 pivot 的元素
+        // pivot指向末尾元素
         while (arr[lo] < pivot) {
             lo++;
         };
@@ -34,7 +35,9 @@ int partition(int* arr, int p, int q) {
     }
     //交换 arr[lo] 和 arr[q] 的值
     temp = arr[lo];
+    // 末尾元素赋值给lo，相当于分界点
     arr[lo] = pivot;
+    // 这里再改变q为lo所指的元素
     arr[q] = temp;
     //返回中间值所在序列中的位置
     return lo;
@@ -48,6 +51,7 @@ void quick_sort(int* arr, int p, int q) {
     }
     else {
         //调用 partition() 函数，分割 [p,q] 区域
+        // 完成后保证，par左边的都小，右边的都大
         par = partition(arr, p, q);
         //以 [p,par-1]作为新的待排序序列，继续分割
         quick_sort(arr, p, par - 1);
