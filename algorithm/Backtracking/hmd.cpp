@@ -28,6 +28,7 @@ void dfs(int depth, int n, const int a[20][20], vector<vector<int>>& v, vector<i
 						break;
 						// 跳出当前循环
 				}
+				// 存在可用节点，继续下一步探索
 			    if (flag) 
                     dfs(depth + 1, n, a, v, path);//若满足约束条件和限界函数，递归下一层
 		}

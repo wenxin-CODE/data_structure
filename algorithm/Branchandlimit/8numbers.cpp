@@ -37,17 +37,20 @@ void init()
 			cin>>start.a[i][j];
 			if(start.a[i][j]==0)
 			{
+				// 记录空格位置
 				start.zx=i;
 				start.zy=j;
 			}
 		}
 	start.integer=setinteger(start);
+	// 记录出现过没
 	used[start.integer]=1;
+	// 记录步数
 	step[start.integer]=0;
 	q.push(start);
 }
  
-//  为每种情况赋一个值
+//  计算当前情况是否符合要求
 int setinteger(state n)
 {
 	n.integer=0;
@@ -68,14 +71,18 @@ int bfs()
 	{
 		now=q.front();
 		q.pop();
+		// 尝试4个方向
 		for(int i=0;i<4;i++)
 		{
 			next=move(now,i);
+			// 判断能不能走
 			if(next.useful)
 			{
+				// 满足条件
 				if(next.integer==123456780)
 					return step[next.integer];
 				else
+				// 入队
 					q.push(next);
 			}
 		}
@@ -95,11 +102,13 @@ state move(state now,int i)
 			next.a[j][k]=now.a[j][k];
 			cout<<next.a[j][k]<<endl;
 		}	
+		// 确定移动后位置
 	newx=now.zx+walk[i][0];
 	newy=now.zy+walk[i][1];
 	cout<<newx<<newy<<endl;
 	if(newx>=0 && newx<3 && newy>=0 && newy<3)
 	{
+		// 可以移动
 		swap(next.a[now.zx][now.zy],next.a[newx][newy]);
 		next.zx=newx;
 		next.zy=newy;
