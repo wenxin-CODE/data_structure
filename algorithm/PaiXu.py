@@ -14,7 +14,7 @@ def bubbleSort(arr):
                 
     return arr
 
-#选择排序
+#选择排序：逐个选取第一小、第二小...
 def selectionSort(arr):
     for i in range(len(arr) - 1):
         # 记录最小数的索引
@@ -27,7 +27,8 @@ def selectionSort(arr):
             arr[i], arr[minIndex] = arr[minIndex], arr[i]
     return arr
 
-#插入排序
+#插入排序:
+# 把每个数组元素从右往左逐个与前面的比较，直到找到小于他的，把它放在这里
 def insertionSort(arr):
     for i in range(len(arr)):
         preIndex = i-1
@@ -80,7 +81,7 @@ def merge(left,right):
     return result
 
 #快速排序
-#冒泡排序的递归分治法
+#冒泡排序的递归分治法：选择中间数，大的放右边，小的放左边，递归进行
 def quickSort(arr, left=None, right=None):
     left = 0 if not isinstance(left,(int, float)) else left
     right = len(arr)-1 if not isinstance(right,(int, float)) else right
@@ -202,5 +203,5 @@ def RadixSort(list):
 if __name__ == '__main__':
     
     a = [1,3,5,7,2,4,6,8,9]
-    b = RadixSort(a)
+    b = shellSort(a)
     print("排序结果为:",b)
