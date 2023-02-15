@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+
 Created on Sun Jan 29 12:16:25 2023
 
 @author: 20114
@@ -22,6 +23,7 @@ def selectionSort(arr):
         for j in range(i + 1, len(arr)):
             if arr[j] < arr[minIndex]:
                 minIndex = j
+                
         # i 不是最小数时，将 i 和最小数进行交换
         if i != minIndex:
             arr[i], arr[minIndex] = arr[minIndex], arr[i]
@@ -200,8 +202,13 @@ def RadixSort(list):
     return  list
 
 
+    # 
 if __name__ == '__main__':
     
     a = [1,3,5,7,2,4,6,8,9]
     b = shellSort(a)
     print("排序结果为:",b)
+
+    # await
+    # bubbleSort
+    # ConnectionAbortedError 
