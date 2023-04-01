@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{# 提交之后，跳转到result，url_for动态得到当前网址根路径 #}
+<form action="{{ url_for('result') }}" method="post">
+    <p>姓名：<input type="text" name="姓名"></p>
+    <p>年龄：<input type="text" name="年龄"></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+
+</body>
+</html>

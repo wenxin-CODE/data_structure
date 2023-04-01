@@ -1,1 +1,0 @@
-thenrun()沿用前面的线程 ，hemrunAsync()另开一个线程

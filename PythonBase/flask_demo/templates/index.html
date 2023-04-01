@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<br>
+     今天是{{ var }},欢迎光临 </br>
+     今天值班的是：
+    {% for data in list %}
+       <li> {{ data }} </li>
+    {% endfor %}
+
+     任务：</br>
+{#table是表格，tr是行，td是列,border=1表示有边框#}
+        <table border="1">
+{#    task.items()把字典转换为[( ),( ),( )]    #}
+            {% for key,value in task.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="static/assets/images/favicon-32x32.png" type="image/png" />
+	<!--plugins-->
+	<link href="static/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+	<link href="static/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="static/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="static/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="static/assets/css/pace.min.css" rel="stylesheet" />
+	<script src="static/assets/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="static/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="static/assets/css/app.css" rel="stylesheet">
+	<link href="static/assets/css/icons.css" rel="stylesheet">
+	<!-- Theme Style CSS -->
+	<link rel="stylesheet" href="static/assets/css/dark-theme.css" />
+	<link rel="stylesheet" href="static/assets/css/semi-dark.css" />
+	<link rel="stylesheet" href="static/assets/css/header-colors.css" />
+	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+</head>
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div>
+					<img src="static/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+				</div>
+				<div>
+					<h4 class="logo-text">Rocker</h4>
+				</div>
+				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
+				</div>
+			</div>
+			<!--navigation-->
+			<ul class="metismenu" id="menu">
+				<li class="menu-label">功能列表</li>
+				<li>
+					<a href="/index">
+						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						</div>
+						<div class="menu-title">首页</div>
+					</a>
+				</li>
+				<li>
+					<a href="/movie" class="has-arrow">
+						<div class="parent-icon"><i class='bx bx-cart'></i>
+						</div>
+						<div class="menu-title">电影</div>
+					</a>
+{#					<ul>#}
+{#						<li> <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Products</a>#}
+{#						</li>#}
+{#						<li> <a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Product Details</a>#}
+{#						</li>#}
+{#						<li> <a href="ecommerce-add-new-products.html"><i class="bx bx-right-arrow-alt"></i>Add New Products</a>#}
+{#						</li>#}
+{#						<li> <a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>#}
+{#						</li>#}
+{#					</ul>#}
+				</li>
+				<li>
+					<a class="has-arrow" href="/score">
+						<div class="parent-icon"><i class='bx bxs-wallet'></i>
+						</div>
+						<div class="menu-title">评分</div>
+					</a>
+{#					<ul>#}
+{#						<li> <a href="component-alerts.html"><i class="bx bx-right-arrow-alt"></i>Alerts</a>#}
+{#						</li>#}
+{#						<li> <a href="component-accordions.html"><i class="bx bx-right-arrow-alt"></i>Accordions</a>#}
+{#						</li>#}
+{#						<li> <a href="component-badges.html"><i class="bx bx-right-arrow-alt"></i>Badges</a>#}
+{#						</li>#}
+{#						<li> <a href="component-buttons.html"><i class="bx bx-right-arrow-alt"></i>Buttons</a>#}
+{#						</li>#}
+{#						<li> <a href="component-cards.html"><i class="bx bx-right-arrow-alt"></i>Cards</a>#}
+{#						</li>#}
+{#						<li> <a href="component-carousels.html"><i class="bx bx-right-arrow-alt"></i>Carousels</a>#}
+{#						</li>#}
+{#						<li> <a href="component-list-groups.html"><i class="bx bx-right-arrow-alt"></i>List Groups</a>#}
+{#						</li>#}
+{#						<li> <a href="component-media-object.html"><i class="bx bx-right-arrow-alt"></i>Media Objects</a>#}
+{#						</li>#}
+{#						<li> <a href="component-modals.html"><i class="bx bx-right-arrow-alt"></i>Modals</a>#}
+{#						</li>#}
+{#						<li> <a href="component-navs-tabs.html"><i class="bx bx-right-arrow-alt"></i>Navs & Tabs</a>#}
+{#						</li>#}
+{#						<li> <a href="component-navbar.html"><i class="bx bx-right-arrow-alt"></i>Navbar</a>#}
+{#						</li>#}
+{#						<li> <a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>#}
+{#						</li>#}
+{#						<li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers & Tooltips</a>#}
+{#						</li>#}
+{#						<li> <a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>#}
+{#						</li>#}
+{#						<li> <a href="component-spinners.html"><i class="bx bx-right-arrow-alt"></i>Spinners</a>#}
+{#						</li>#}
+{#						<li> <a href="component-notifications.html"><i class="bx bx-right-arrow-alt"></i>Notifications</a>#}
+{#						</li>#}
+{#						<li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs & Chips</a>#}
+{#						</li>#}
+{#					</ul>#}
+				</li>
+				<li>
+					<a class="has-arrow" href="/word">
+						<div class="parent-icon"><i class="bx bxs-bar-chart-alt-2"></i>
+						</div>
+						<div class="menu-title">词云</div>
+					</a>
+{#					<ul>#}
+{#						<li> <a href="content-grid-system.html"><i class="bx bx-right-arrow-alt"></i>Grid System</a>#}
+{#						</li>#}
+{#						<li> <a href="content-typography.html"><i class="bx bx-right-arrow-alt"></i>Typography</a>#}
+{#						</li>#}
+{#						<li> <a href="content-text-utilities.html"><i class="bx bx-right-arrow-alt"></i>Text Utilities</a>#}
+{#						</li>#}
+{#					</ul>#}
+				</li>
+				<li>
+					<a class="has-arrow" href="/team">
+						<div class="parent-icon"> <i class="bx bxs-group"></i>
+						</div>
+						<div class="menu-title">团队</div>
+					</a>
+{#					<ul>#}
+{#						<li> <a href="icons-line-icons.html"><i class="bx bx-right-arrow-alt"></i>Line Icons</a>#}
+{#						</li>#}
+{#						<li> <a href="icons-boxicons.html"><i class="bx bx-right-arrow-alt"></i>Boxicons</a>#}
+{#						</li>#}
+{#						<li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>#}
+{#						</li>#}
+{#					</ul>#}
+				</li>
+
+			</ul>
+			<!--end navigation-->
+		</div>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<header>
+			<div class="topbar d-flex align-items-center">
+				<nav class="navbar navbar-expand">
+					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+					</div>
+<h2>豆瓣电源推荐</h2>
+				</nav>
+			</div>
+		</header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                   <div class="col">
+					 <div class="card radius-10 border-start border-0 border-3 border-info">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">电影</p>
+									<h4 class="my-1 text-info">250</h4>
+									<p class="mb-0 font-13">+2.5% from last week</p>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-film"></i>
+								</div>
+							</div>
+						</div>
+					 </div>
+				   </div>
+				   <div class="col">
+					<div class="card radius-10 border-start border-0 border-3 border-danger">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">评分统计</p>
+								   <h4 class="my-1 text-danger">1</h4>
+								   <p class="mb-0 font-13">+5.4% from last week</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bxs-wallet'></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col">
+					<div class="card radius-10 border-start border-0 border-3 border-success">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">词汇统计</p>
+								   <h4 class="my-1 text-success">1314</h4>
+								   <p class="mb-0 font-13">-4.5% from last week</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col">
+					<div class="card radius-10 border-start border-0 border-3 border-warning">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">团队成员</p>
+								   <h4 class="my-1 text-warning">5</h4>
+								   <p class="mb-0 font-13">+8.4% from last week</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bxs-group'></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div> 
+				</div><!--end row-->
+
+{#				#}
+
+				 <div class="card radius-10">
+                         <div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Recent Orders</h6>
+								</div>
+								<div class="dropdown ms-auto">
+									<a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="javascript:;">Action</a>
+										</li>
+										<li><a class="dropdown-item" href="javascript:;">Another action</a>
+										</li>
+										<li>
+											<hr class="dropdown-divider">
+										</li>
+										<li><a class="dropdown-item" href="javascript:;">Something else here</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						 <div class="table-responsive">
+						   <table class="table align-middle mb-0">
+							<thead class="table-light">
+							 <tr>
+							   <th>Product</th>
+							   <th>Photo</th>
+							   <th>Product ID</th>
+							   <th>Status</th>
+							   <th>Amount</th>
+							   <th>Date</th>
+							   <th>Shipping</th>
+							 </tr>
+							 </thead>
+							 <tbody><tr>
+							  <td>Iphone 5</td>
+							  <td><img src="static/assets/images/products/01.png" class="product-img-2" alt="product img"></td>
+							  <td>#9405822</td>
+							  <td><span class="badge bg-gradient-quepal text-white shadow-sm w-100">Paid</span></td>
+							  <td>$1250.00</td>
+							  <td>03 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-quepal" role="progressbar" style="width: 100%"></div>
+								  </div></td>
+							 </tr>
+
+							 <tr>
+							  <td>Earphone GL</td>
+							  <td><img src="static/assets/images/products/02.png" class="product-img-2" alt="product img"></td>
+							  <td>#8304620</td>
+							  <td><span class="badge bg-gradient-blooker text-white shadow-sm w-100">Pending</span></td>
+							  <td>$1500.00</td>
+							  <td>05 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-blooker" role="progressbar" style="width: 60%"></div>
+								  </div></td>
+							 </tr>
+
+							 <tr>
+							  <td>HD Hand Camera</td>
+							  <td><img src="static/assets/images/products/03.png" class="product-img-2" alt="product img"></td>
+							  <td>#4736890</td>
+							  <td><span class="badge bg-gradient-bloody text-white shadow-sm w-100">Failed</span></td>
+							  <td>$1400.00</td>
+							  <td>06 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-bloody" role="progressbar" style="width: 70%"></div>
+								  </div></td>
+							 </tr>
+
+							 <tr>
+							  <td>Clasic Shoes</td>
+							  <td><img src="static/assets/images/products/04.png" class="product-img-2" alt="product img"></td>
+							  <td>#8543765</td>
+							  <td><span class="badge bg-gradient-quepal text-white shadow-sm w-100">Paid</span></td>
+							  <td>$1200.00</td>
+							  <td>14 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-quepal" role="progressbar" style="width: 100%"></div>
+								  </div></td>
+							 </tr>
+							 <tr>
+							  <td>Sitting Chair</td>
+							  <td><img src="static/assets/images/products/06.png" class="product-img-2" alt="product img"></td>
+							  <td>#9629240</td>
+							  <td><span class="badge bg-gradient-blooker text-white shadow-sm w-100">Pending</span></td>
+							  <td>$1500.00</td>
+							  <td>18 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-blooker" role="progressbar" style="width: 60%"></div>
+								  </div></td>
+							 </tr>
+							 <tr>
+							  <td>Hand Watch</td>
+							  <td><img src="static/assets/images/products/05.png" class="product-img-2" alt="product img"></td>
+							  <td>#8506790</td>
+							  <td><span class="badge bg-gradient-bloody text-white shadow-sm w-100">Failed</span></td>
+							  <td>$1800.00</td>
+							  <td>21 Feb 2020</td>
+							  <td><div class="progress" style="height: 6px;">
+									<div class="progress-bar bg-gradient-bloody" role="progressbar" style="width: 40%"></div>
+								  </div></td>
+							 </tr>
+						    </tbody>
+						  </table>
+						  </div>
+						 </div>
+					</div>
+
+
+
+			</div>
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2021. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+	<!--start switcher-->
+	<div class="switcher-wrapper">
+		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+		</div>
+		<div class="switcher-body">
+			<div class="d-flex align-items-center">
+				<h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Theme Styles</h6>
+			<hr/>
+			<div class="d-flex align-items-center justify-content-between">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
+					<label class="form-check-label" for="lightmode">Light</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="darkmode">
+					<label class="form-check-label" for="darkmode">Dark</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="semidark">
+					<label class="form-check-label" for="semidark">Semi Dark</label>
+				</div>
+			</div>
+			<hr/>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" id="minimaltheme" name="flexRadioDefault">
+				<label class="form-check-label" for="minimaltheme">Minimal Theme</label>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Header Colors</h6>
+			<hr/>
+			<div class="header-colors-indigators">
+				<div class="row row-cols-auto g-3">
+					<div class="col">
+						<div class="indigator headercolor1" id="headercolor1"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor2" id="headercolor2"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor3" id="headercolor3"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor4" id="headercolor4"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor5" id="headercolor5"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor6" id="headercolor6"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor7" id="headercolor7"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor8" id="headercolor8"></div>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Sidebar Colors</h6>
+			<hr/>
+			<div class="header-colors-indigators">
+				<div class="row row-cols-auto g-3">
+					<div class="col">
+						<div class="indigator sidebarcolor1" id="sidebarcolor1"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor2" id="sidebarcolor2"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor3" id="sidebarcolor3"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor4" id="sidebarcolor4"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor5" id="sidebarcolor5"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor6" id="sidebarcolor6"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor7" id="sidebarcolor7"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor8" id="sidebarcolor8"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end switcher-->
+	<!-- Bootstrap JS -->
+	<script src="static/assets/js/bootstrap.bundle.min.js"></script>
+	<!--plugins-->
+	<script src="static/assets/js/jquery.min.js"></script>
+	<script src="static/assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="static/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="static/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<script src="static/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="static/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="static/assets/plugins/chartjs/js/Chart.min.js"></script>
+	<script src="static/assets/plugins/chartjs/js/Chart.extension.js"></script>
+	<script src="static/assets/js/index.js"></script>
+	<!--app JS-->
+	<script src="static/assets/js/app.js"></script>
+<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+<div class="copyrights">
+	Collect from <a href="http://www.cssmoban.com/"  title="网站模板">模板之家</a>
+	<a href="https://www.chazidian.com/"  title="查字典">查字典</a>
+</div>
+</body>
+
+</html>
