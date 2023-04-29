@@ -3,12 +3,27 @@ package juc.syncup;
 import org.openjdk.jol.info.ClassLayout;
 
 import java.awt.*;
+import java.util.concurrent.TimeUnit;
 
 public class SynchronizedUpDemo {
     public static void main(String[] args) {
-//        nolock();
+        try { TimeUnit.SECONDS.sleep(5);} catch (InterruptedException e){e.printStackTrace();}
+        Object o = new Object();
+        System.out.println("应该是偏向锁");
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
 
-//轻量锁
+//        o.hashCode();
+//        取出hashcode，就无法处于偏向，转为轻量
+
+        synchronized (o){
+            o.hashCode();//偏向过程中遇到哈希计算请求，偏向转重量
+            System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        }
+    }
+
+    private static void thinlock()
+    {
+        //轻量锁
         Object o = new Object();
         new Thread(() -> {
             synchronized (o)
@@ -31,7 +46,6 @@ public class SynchronizedUpDemo {
                 System.out.println(ClassLayout.parseInstance(o).toPrintable());
             }
         },"c").start();
-
     }
 
     private static void biasedlock()
