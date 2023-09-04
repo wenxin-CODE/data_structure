@@ -161,11 +161,16 @@ int selectElem(link * p, int elem);
 //更新结点的函数，newElem为新的数据域的值
 link *amendElem(link * p, int add, int newElem);
 void display(link *p);
+link* reverseList(link *p);
 
 int main() {
     //初始化链表（1，2，3，4）
     printf("初始化链表为：\n");
     link *p = initLink();
+    display(p);
+
+    printf("反转链表");
+    p = reverseList(p);
     display(p);
 
     printf("在第4的位置插入元素5：\n");
@@ -189,6 +194,21 @@ int main() {
     display(p);
 
     return 0;
+}
+
+link* reverseList(link* head) {
+    link* pre = nullptr;
+    link* cur = head;
+    while(cur){
+        link* next = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = next;
+    }
+    link* p = (link*)malloc(sizeof(link));
+    p->next = pre;
+    // delElem(p,-1163005939);
+    return p;
 }
 
 link * initLink() {
