@@ -1,0 +1,42 @@
+version: 1
+disable_existing_loggers: False
+# formatters配置了日志输出时的样式
+# formatters定义了一组formatID,有不同的格式;
+formatters:
+  brief:
+      format: "%(asctime)s - %(message)s"
+  simple:
+      format: "%(asctime)s - [%(name)s] - [%(levelname)s] :%(levelno)s: %(message)s"
+      datefmt: '%F %T'
+# handlers配置了需要处理的日志信息,logging模块的handler只有streamhandler和filehandler
+handlers:
+  console:
+      class : logging.StreamHandler
+      formatter: brief
+      level   : DEBUG
+      stream  : ext://sys.stdout
+  info_file_handler:
+      class : logging.FileHandler
+      formatter: simple
+      level: DEBUG
+      filename: ./mylog/debug_test.log
+  error_file_handler:
+      class: logging.handlers.RotatingFileHandler
+      level: ERROR
+      formatter: simple
+      filename: ./mylog/errors.log
+      maxBytes: 10485760 # 10MB #1024*1024*10
+      backupCount: 50
+      encoding: utf8
+
+loggers:
+#fileLogger, 就是在代码中通过logger = logging.getLogger("fileLogger")来获得该类型的logger
+  my_testyaml:
+      level: DEBUG
+      handlers: [console, info_file_handler,error_file_handler]
+# root为默认情况下的输出配置, 当logging.getLogger("fileLoggername")里面的fileLoggername没有传值的时候,
+# 就是用的这个默认的root,如logging.getLogger(__name__)或logging.getLogger()
+root:
+    level: DEBUG
+    # root的输出方式只有console
+    handlers: [console]

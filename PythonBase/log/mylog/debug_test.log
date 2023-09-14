@@ -1,0 +1,6 @@
+2023-09-14 10:01:13 - [my_testyaml] - [INFO] :20: INFO
+2023-09-14 10:01:13 - [my_testyaml] - [ERROR] :40: ERROR
+2023-09-14 10:01:13 - [my_testyaml] - [DEBUG] :10: rootDEBUG
+2023-09-14 10:02:19 - [my_testyaml] - [INFO] :20: INFO，巨鹿信息
+2023-09-14 10:02:19 - [my_testyaml] - [ERROR] :40: ERROR，记录错误
+2023-09-14 10:02:19 - [my_testyaml] - [DEBUG] :10: rootDEBUG，调试bug
