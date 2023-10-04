@@ -133,6 +133,51 @@ public:
     }
 };
 
+// 完全二叉树节点个数
+class wanquan {
+public:
+    int countNodes(TreeNode* root) {
+        if(root == nullptr){
+            return 0;
+        }
+        int level = 0;
+        TreeNode* node = root;
+        // 统计总共有几层
+        while(node->left!=nullptr){
+            level++;
+            node=node->left;
+        }
+        // 确定节点数量的范围
+        int low=1<<level,high=(1<<(level+1))-1;
+        while(low<high){
+            // 二分查找
+            int mid = (high-low+1)/2+low;
+            if(exits(root,level,mid)){
+                low=mid;
+            }else{
+                high=mid-1;
+            }
+        }
+        return low;
+    }
+
+    bool exits(TreeNode* root,int level,int k){
+        // 从level-1层的第一个结点开始
+        int bits=1<<(level-1);
+        TreeNode* node = root;
+        while(node!=nullptr&&bits>0){
+            if(!(bits&k)){
+                node = node->left;
+            }else{
+                node = node->right;
+            }
+            // 将二进制表示右移一位，去掉最低位
+            bits >>= 1;
+        }
+        return node != nullptr;
+    }
+};
+
 int main(){
     TreeNode* node4 = new TreeNode(4);
     TreeNode* node5 = new TreeNode(5);
