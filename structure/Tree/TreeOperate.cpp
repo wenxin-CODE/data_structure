@@ -178,6 +178,30 @@ public:
     }
 };
 
+// 寻找二叉树里面的最大路径
+class Solution {
+private:
+    int maxSum=INT_MIN;
+public:
+    int maxGain(TreeNode* node){
+        if(node==nullptr){
+            return 0;
+        }
+        // 
+        int leftGain = max(maxGain(node->left),0);
+        int rightGain = max(maxGain(node->right),0);
+        // 拐弯路径
+        int priceNewpath = node->val+leftGain+rightGain;
+        maxSum = max(maxSum,priceNewpath);
+        // 直上路径
+        return node->val+max(leftGain,rightGain);
+    }
+    int maxPathSum(TreeNode* root) {
+        maxGain(root);
+        return maxSum;
+    }
+};
+
 int main(){
     TreeNode* node4 = new TreeNode(4);
     TreeNode* node5 = new TreeNode(5);
