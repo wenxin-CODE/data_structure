@@ -8,30 +8,31 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class LockSupportDemo {
     public static void main(String[] args) {
-        Thread t1 = new Thread(() -> {
-//            先唤醒unpark后等待park也可以——此时park不会消耗一点时间，高效
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            System.out.println(Thread.currentThread().getName()+"  come in");
-            LockSupport.park();//阻塞
-            System.out.println(Thread.currentThread().getName()+" 被唤醒");
-        },"t1");
-        t1.start();
-
+//        Thread t1 = new Thread(() -> {
+////            先唤醒unpark后等待park也可以——此时park不会消耗一点时间，高效
+//            try {
+//                TimeUnit.SECONDS.sleep(1);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//
+//            System.out.println(Thread.currentThread().getName()+"  come in");
+//            LockSupport.park();//阻塞
+//            System.out.println(Thread.currentThread().getName()+" 被唤醒");
+//        },"t1");
+//        t1.start();
+//
 //        try {
 //            TimeUnit.SECONDS.sleep(1);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
-        new Thread(() -> {
-            LockSupport.unpark(t1);//阻塞
-            System.out.println(Thread.currentThread().getName()+" 发出通知");
-        },"t2").start();
+//
+//        new Thread(() -> {
+//            LockSupport.unpark(t1);//解除阻塞
+//            System.out.println(Thread.currentThread().getName()+" 发出通知");
+//        },"t2").start();
+    syncwaitnotify();
     }
 
     private static void lockawaitsignal()
@@ -88,7 +89,7 @@ public class LockSupportDemo {
                 }
                 System.out.println(Thread.currentThread().getName()+" 被唤醒");
             }
-        },"t1").start();
+        },"s1").start();
 
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -102,6 +103,6 @@ public class LockSupportDemo {
                 o.notify();
                 System.out.println(Thread.currentThread().getName()+" 发出通知");
             }
-        },"t2").start();
+        },"s2").start();
     }
 }
