@@ -12,6 +12,7 @@ public class SpinLockDemo {
     public void lock(){
         Thread thread = Thread.currentThread();
         System.out.println(Thread.currentThread().getName()+"\t"+"---com in");
+//        B执行到这里就被卡住了，因为A将atomicReference的值改为了thread，直到A执行了unlock，B才能接着往下执行
         while (!atomicReference.compareAndSet(null, thread)) {
 
         }

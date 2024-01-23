@@ -5,7 +5,7 @@ package juc.cas;
 //import lombok.NoArgsConstructor;
 //import lombok.ToString;
 
-import java.util.concurrent.atomic.AtomicStampedReference;
+import java.util.concurrent.atomic.AtomicStampedReference;//记录修改过几次
 
 class Cat{
      String name;
@@ -40,6 +40,7 @@ public class AtomicStampedDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+//            compareAndSet修改成功了才执行newstamp，这里要求cat和stamp都是要求的才可以
             System.out.println("线程B修改结果"+reference.compareAndSet(cat1, cat3, stamp, stamp + 1)+",stamp:"+reference.getStamp());
         },"B").start();
     }
