@@ -13,6 +13,8 @@ public class JavaSet {
         hashSet.add("daved");
         hashSet.add(null);
 
+        hashSet.remove("null");
+
 //        输出顺序是固定的
         for (int i = 0; i < 10; i++) {
             Iterator iterator = hashSet.iterator();
@@ -23,6 +25,34 @@ public class JavaSet {
             System.out.println();
         }
 
+        HashSet hashSet1 = new HashSet();
+        System.out.println(hashSet1.add("Alice"));
+        System.out.println(hashSet1.add("Alice"));
+        System.out.println(hashSet1.add(new Dog("Alice")));
+        System.out.println(hashSet1.add(new Dog("Alice")));
+        System.out.println(hashSet1.add(new String("Alice")));
+        System.out.println(hashSet1.add(new String("Bob")));
+        System.out.println(hashSet1.add(new String("Bob")));
+        System.out.println(hashSet1.add(new Integer(12)));
+        System.out.println(hashSet1.add(new Integer(12)));
+
+
 
     }
 }
+
+class Dog{
+    public String name;
+
+    Dog(String name){
+        this.name=name;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+}
+
