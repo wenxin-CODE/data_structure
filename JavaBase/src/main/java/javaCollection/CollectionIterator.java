@@ -2,6 +2,7 @@ package javaCollection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class CollectionIterator {
@@ -27,6 +28,7 @@ public class CollectionIterator {
         for(Object book:list1){
             System.out.println("obj="+book);
         }
+
 
     }
 }

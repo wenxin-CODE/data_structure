@@ -37,7 +37,6 @@ public class JavaSet {
         System.out.println(hashSet1.add(new Integer(12)));
 
 
-
     }
 }
 

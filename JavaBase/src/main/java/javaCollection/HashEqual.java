@@ -46,7 +46,8 @@ class Employee{
                 '}';
     }
 
-//    若name、age相同，返回同一个hashcode
+//    若name、age相同，返回同一个hashcode。
+//    一个对象只有hashcode不同，且equals返回false，才能添加进去
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
