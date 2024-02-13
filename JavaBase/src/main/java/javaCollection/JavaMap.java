@@ -13,11 +13,11 @@ public class JavaMap {
         hashMap.put("no.2","dxy");
         hashMap.put("no.3","dwy");
 
-        Set set = hashMap.entrySet();//EntrySet<Entry<k,v>>
+        Set set = hashMap.entrySet();//HashMap$EntrySet<Entry<k,v>>
         System.out.println(set.getClass());
         for (Object obj:
              set) {
-            System.out.println(obj.getClass());
+            System.out.println(obj.getClass());//HashMap$Node
 //            Node实现了Entry接口，上转为Entry
             Map.Entry entry = (Map.Entry) obj;
 //            entry的两个方法
