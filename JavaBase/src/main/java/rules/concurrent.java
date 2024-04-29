@@ -1,10 +1,17 @@
-package rules;
+package main.java.rules;
 
-public static void main(String[]args){
+import com.sun.org.apache.xalan.internal.xsltc.dom.SingletonIterator;
 
-    Singlenton s = new Singleton();
-    cout<<"finish!!!"<<endl;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+class Concurrent{
+    public static void main(String[]args){
+
+        Singlenton s=new Singleton();
+        System.out.println(s.getInstance());
+
+    }
 }
 
 //1、获取单例对象保证线程安全
@@ -102,39 +109,39 @@ class NewFixedTest {
 }
 
 //高并发注意锁的粒度
-private void slowNotShare() {
-    try {
-        TimeUnit.MILLISECONDS.sleep(100);
-    } catch (InterruptedException e) {
-    }
-}
-
-public int right() {
-    long beginTime = System.currentTimeMillis();
-    IntStream.rangeClosed(1, 10000).parallel().forEach(i -> {
-        slowNotShare();//可以不加锁
-        //只对List这部分加锁
-        synchronized (data) {
-            data.add(i);
-        }
-    });
-    log.info("cosume time:{}", System.currentTimeMillis() - beginTime);
-    return data.size();
-}
-
-//错误的加锁方法
-public int wrong() {
-    long beginTime = System.currentTimeMillis();
-    IntStream.rangeClosed(1, 10000).parallel().forEach(i -> {
-        //加锁粒度太粗了，slowNotShare其实不涉及共享资源
-        synchronized (this) {
-            slowNotShare();
-            data.add(i);
-        }
-    });
-    log.info("cosume time:{}", System.currentTimeMillis() - beginTime);
-    return data.size();
-}
+//private void slowNotShare() {
+//    try {
+//        TimeUnit.MILLISECONDS.sleep(100);
+//    } catch (InterruptedException e) {
+//    }
+//}
+//
+//public int right() {
+//    long beginTime = System.currentTimeMillis();
+//    IntStream.rangeClosed(1, 10000).parallel().forEach(i -> {
+//        slowNotShare();//可以不加锁
+//        //只对List这部分加锁
+//        synchronized (data) {
+//            data.add(i);
+//        }
+//    });
+//    log.info("cosume time:{}", System.currentTimeMillis() - beginTime);
+//    return data.size();
+//}
+//
+////错误的加锁方法
+//public int wrong() {
+//    long beginTime = System.currentTimeMillis();
+//    IntStream.rangeClosed(1, 10000).parallel().forEach(i -> {
+//        //加锁粒度太粗了，slowNotShare其实不涉及共享资源
+//        synchronized (this) {
+//            slowNotShare();
+//            data.add(i);
+//        }
+//    });
+//    log.info("cosume time:{}", System.currentTimeMillis() - beginTime);
+//    return data.size();
+//}
 
 //使用 CountDownLatch 进行异步转同步操作，每个线程退出前必须调用 countDown方法。
 class AsyncToSyncExample {
