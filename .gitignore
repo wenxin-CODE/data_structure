@@ -1,3 +1,4 @@
 dataset
 *.pkl
 *.json
+*.csv
