@@ -15,9 +15,9 @@ def hello_world():
 
 # # 带参访问
 # # <>里面是传入的参数
-# @app.route('/user/<name>')
-# def hello(name):
-#     return "hello "+name
+@app.route('/user/<name>')
+def hello(name):
+    return "hello "+name
 
 
 # # 根据参数类型的不同，自动路由匹配不同的函数
@@ -58,7 +58,7 @@ def hello_world():
 #         return render_template("test/result.html",result=result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port="9000")
     
     # 制作流程：
     # 1爬取数据 spider BS4 urllib
