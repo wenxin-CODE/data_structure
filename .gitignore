@@ -2,3 +2,4 @@ dataset
 *.pkl
 *.json
 *.csv
+*.class
