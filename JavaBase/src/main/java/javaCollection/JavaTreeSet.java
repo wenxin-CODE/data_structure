@@ -11,8 +11,8 @@ public class JavaTreeSet {
         TreeSet treeSet = new TreeSet(new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-//                return ((String) o1).compareTo((String) o2);
-                return ((String) o1).length()-((String) o2).length();
+               return ((String) o1).compareTo((String) o2);//这种方式会返回PHP
+                // return ((String) o1).length()-((String) o2).length();//这种方式不包含PHP
             }
         });
 
